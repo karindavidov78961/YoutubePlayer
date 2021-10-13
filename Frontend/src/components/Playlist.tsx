@@ -33,8 +33,6 @@ const Playlist: React.FC = () => {
 
     useEffect(() => {
         socket.on('playlist', (playlist: IURL[]) => {
-            // console.log('im hereeeeee');
-            // console.log(playlist)
             setVideoList(playlist)
         })
     }, [])
@@ -67,13 +65,11 @@ const Playlist: React.FC = () => {
 
     // Remove video
     const removeVideo = (id: string) => {
-        // console.log('id to remove ' + id)
         socket.emit('remove_video', id)
     }
 
     // Play next video
     const playNextVideo = () => {
-        // console.log('ended')
         const tempList = [...videoList]
         const removedVideo = tempList.shift()
         if (removedVideo)
