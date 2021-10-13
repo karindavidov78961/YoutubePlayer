@@ -14,16 +14,16 @@ To set up the project you need to install all the node modules in both of the pr
 **frontend setup:**  
 run this
 ```sh
-$ cd frontend
-$ npm install
+cd frontend
+npm install
 ```
 
 **backend setup steps:**  
 1. Setup .env file, then run this:
 ```sh
-$ cd ../backend
-$ npm install
-$ npm run run-db
+cd ../backend
+npm install
+npm run run-db
 ```
 
 ## Running the projects
@@ -32,14 +32,14 @@ For this to project you need to have both the node server and the react project 
 ### Start the server
 To start the server run this
 ```sh
-$ cd backend
-$ npm run start
+cd backend
+npm run start
 ```
 
 ### Start the App
 To start the app run this
 ```sh
-$ cd frontend
-$ npm start
+cd frontend
+npm start
 ```
 
