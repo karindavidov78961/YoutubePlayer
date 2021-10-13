@@ -30,16 +30,30 @@ npm run run-db
 For this to project you need to have both the node server and the react project running.
 
 ### Start the server
-To start the server run this
+To build the server run this 
+```sh
+cd backend
+npm run build
+```
+
+To run the server run this 
 ```sh
 cd backend
 npm run start
 ```
 
 ### Start the App
-To start the app run this
+To build the app run this
+```sh
+cd frontend
+npm run build
+```
+
+To run the app run this
 ```sh
 cd frontend
 npm start
 ```
+
+
 
