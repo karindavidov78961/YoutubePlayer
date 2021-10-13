@@ -1,6 +1,5 @@
 import express from "express";
 import * as http from "http";
-// import * as helmet from "helmet";
 import cors from "cors";
 import { Server } from "socket.io";
 import { config } from "dotenv";
@@ -54,7 +53,6 @@ export const startServer = async (port: number) => {
       } catch (error) {
         console.log(error)
       }
-      // })
     });
 
     // Remove video from playlist, get all videos list and emit
