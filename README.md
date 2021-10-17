@@ -19,7 +19,16 @@ npm install
 ```
 
 **backend setup steps:**  
-1. Setup .env file, then run this:
+1. Setup .env file, with the following parameters:  
+``
+DB_HOST=localhost
+DB_NAME=docker
+DB_USER=docker
+DB_PASSWORD=docker
+DB_SCHEMA=playlist
+``
+
+2. then run this:
 ```sh
 cd ../backend
 npm install
