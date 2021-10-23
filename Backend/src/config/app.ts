@@ -21,8 +21,6 @@ export const startServer = async (port: number) => {
   const videosRepo = getRepository(Video);
 
   io.on('connection', async (socket) => {
-    console.log('a user connected');
-
     // Get playlist and emit
     try {
       const allVideos = await videosRepo.find({
@@ -30,7 +28,6 @@ export const startServer = async (port: number) => {
           id: "ASC"
         }
       });
-      console.log(allVideos)
       io.emit('playlist', allVideos)
     } catch (error) {
       console.log(error)
@@ -38,9 +35,6 @@ export const startServer = async (port: number) => {
 
     // Add video to the playlist, get all videos list and emit
     socket.on('add_video', async ({ url, title }) => {
-      console.log('url: ' + url);
-      console.log('title: ' + title);
-
       try {
         await videosRepo.save({ url: url, title: title })
         const allVideos = await videosRepo.find({
@@ -48,7 +42,6 @@ export const startServer = async (port: number) => {
             id: "ASC"
           }
         });
-        console.log(allVideos)
         io.emit('playlist', allVideos)
       } catch (error) {
         console.log(error)
@@ -57,8 +50,6 @@ export const startServer = async (port: number) => {
 
     // Remove video from playlist, get all videos list and emit
     socket.on('remove_video', async (id) => {
-      console.log('id remove ' + id);
-
       try {
         await videosRepo.delete({ id: id })
         const allVideos = await videosRepo.find({
