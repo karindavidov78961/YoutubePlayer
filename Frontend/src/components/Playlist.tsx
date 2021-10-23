@@ -6,6 +6,7 @@ import { makeStyles } from '@mui/styles';
 import io from "socket.io-client";
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
+import playerImg from '../assets/mediaPlayer.png'
 
 interface IURL {
     id: string;
@@ -17,8 +18,6 @@ const socket = io('http://localhost:5001')
 
 const useStyles = makeStyles({
     list: {
-        width: '100%',
-        maxWidth: 500,
         maxHeight: 250,
         height: '100%',
         overflow: 'auto',
@@ -79,10 +78,9 @@ const Playlist: React.FC = () => {
     return (
         <Stack
             direction="row"
-            justifyContent="flex-start"
             alignItems="stretch"
             spacing={2}>
-            <div style={{ border: '2px solid #e0e0e0', width: '100%', maxWidth: 500, padding: '10px' }}>
+            <div style={{ border: '2px solid #e0e0e0', width: '30vw', padding: '10px' }}>
                 <Stack direction="row" spacing={1}>
                     <TextField
                         style={{ width: '100%' }}
@@ -112,8 +110,8 @@ const Playlist: React.FC = () => {
             </div>
             <div>
                 {videoList.length !== 0
-                    ? <ReactPlayer url={videoList[0].url} muted={true} playing={true} controls={true} onEnded={playNextVideo} />
-                    : <ReactPlayer url={'JUST_FOR_IMG'} controls={true} />
+                    ? <ReactPlayer url={videoList[0].url} width='40vw' muted={true} playing={true} controls={true} onEnded={playNextVideo} />
+                    : <img src={playerImg} height='360px' alt='playerImg' />
                 }
             </div>
         </Stack>
